@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 :root {
     --color-primary: #332A7C;
+    --color-secondary: #FFA000;
     --color-white: #FFFFFF;
+    --color-text-primary: #514865;
 }
 
 * {
@@ -29,7 +31,7 @@ a {
 }
 
 
-/*links home*/
+/* left bar links home*/
 .leftBar {
     padding: 10px;
     background: black;
@@ -46,7 +48,7 @@ a {
 }
 
 .leftBar nav ul {
-    text-align: center;
+    text-align: left;
     list-style: none;
     color: var(--color-white);
 }
@@ -54,6 +56,7 @@ a {
 nav ul .titleLeftBar{
     margin-top: 58px;
 
+    text-align: center;
     color: var(--color-white);
     font-weight: bold;
     font-size: 20px;
@@ -61,9 +64,25 @@ nav ul .titleLeftBar{
 }
 
 nav ul .linkHome {
-    margin-top: 52px;
+    margin-top: 88px;
     font-weight: 500;
     font-size: 20px;
+    margin-left: 19px;
+
+    display: grid;
+    grid-template-columns: 30px 1fr;
+}
+
+nav ul .linkHome a {
+    margin-left: 17px;
+    display: flex;
+    align-items: center;
+}
+
+nav ul .linkHome i {
+    text-align: center;
+    font-size: 30px;
+
 }
 
 nav ul li:nth-child(2){
@@ -72,4 +91,58 @@ nav ul li:nth-child(2){
 
 nav ul li:last-child{
     margin-top: 181px;
+    margin-left: 0;
+    grid-template-columns: 1fr 1fr;
+}
+
+nav ul .linkHome:last-child i{
+    text-align: right;
+    margin-right: 5px;
+}
+
+nav ul li:last-child a {
+    margin-left: 0;
+}
+
+
+/* top center bar home*/
+
+.topCenterBar {
+    background: var(--color-secondary);
+    width: 931px;
+    height: 131px;
+
+    color: var(--color-white);
+    border-radius: 30px;
+    margin-top: 20px;
+
+    display: flex;
+    align-items: center;
+}
+
+.topCenterBar .textTopCenterBar{
+    margin-left: 53px;
+    list-style: none;
+}
+
+.topCenterBar h1{
+    font-weight: 500;
+    font-size: 40px;   
+}
+
+.topCenterBar p{
+    margin-top: 5px
+}
+
+
+/* Center Event Information */
+
+.centerEventInformation {
+    margin-top: 40px
+}
+
+.centerEventInformation h1 {
+    font-weight: 500;
+    font-size: 30px;
+    color: var(--color-text-primary);
 }

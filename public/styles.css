@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+:root {
+    --color-primary: #332A7C;
+    --color-white: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: white;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    color: white; 
+}
+
+/* === HOME === */
+.container{
+    display: grid;
+    grid-template-columns: 258px 1fr;
+    gap: 73px;
+}
+
+
+/*links home*/
+.leftBar {
+    padding: 10px;
+    background: black;
+    max-width: 240px;
+    margin-left: 18px;
+    margin-top: 20px;
+    border-radius: 30px;
+    background: var(--color-primary);
+}
+
+.leftBar nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.leftBar nav ul {
+    text-align: center;
+    list-style: none;
+    color: var(--color-white);
+}
+
+nav ul .titleLeftBar{
+    margin-top: 58px;
+
+    color: var(--color-white);
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+}
+
+nav ul .linkHome {
+    margin-top: 52px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+nav ul li:nth-child(2){
+    margin-top: 100px;
+}
+
+nav ul li:last-child{
+    margin-top: 181px;
+}

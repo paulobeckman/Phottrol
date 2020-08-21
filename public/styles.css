@@ -4,6 +4,7 @@
     --color-secondary: #FFA000;
     --color-white: #FFFFFF;
     --color-text-primary: #514865;
+    --color-button-secondary: #137866;
 }
 
 * {
@@ -28,6 +29,7 @@ a {
     display: grid;
     grid-template-columns: 258px 1fr;
     gap: 73px;
+    margin: 20px 18px;
 }
 
 
@@ -36,8 +38,6 @@ a {
     padding: 10px;
     background: black;
     max-width: 240px;
-    margin-left: 18px;
-    margin-top: 20px;
     border-radius: 30px;
     background: var(--color-primary);
 }
@@ -109,20 +109,22 @@ nav ul li:last-child a {
 
 .topCenterBar {
     background: var(--color-secondary);
-    width: 931px;
+    width: 100%;
     height: 131px;
 
     color: var(--color-white);
     border-radius: 30px;
-    margin-top: 20px;
 
+    position: relative;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .topCenterBar .textTopCenterBar{
     margin-left: 53px;
     list-style: none;
+    
 }
 
 .topCenterBar h1{
@@ -146,3 +148,59 @@ nav ul li:last-child a {
     font-size: 30px;
     color: var(--color-text-primary);
 }
+
+.cardsNextEvent{
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 213px;
+    grid-row-gap: 133px;
+
+    position: relative;
+    padding: 58px 100px;
+}
+
+.cardNextEvent {
+    border: 1px solid var(--color-primary);
+    border-radius: 15px;
+    height: 122px;
+    display: grid;
+    align-items: center;
+}
+
+.cardNextEvent h2 {
+    color: var(--color-secondary);
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+
+    margin: auto 17px;
+}
+
+.homeNextEvent h3 {
+    color: var(--color-text-primary);
+    font-weight: 300;
+    font-size: 25px;
+    text-align: center;
+
+    margin-top: 11px;
+}
+
+/* EVENTS */
+
+.buttonNewEvent{
+    margin-right: 26px;
+}
+
+.buttonNewEvent a{
+    background: var(--color-button-secondary);
+    padding: 13px 17px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 6px rgba(1, 1, 1, 0.3);
+    border: solid 1px #BEBEBE;
+
+    font-weight: 500;
+    font-size: 25px;
+
+}
+

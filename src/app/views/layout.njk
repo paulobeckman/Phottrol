@@ -26,16 +26,11 @@
 
             <div class="main">
                 <div class="topCenterBar">
-                    <ul>
-                        <li class="textTopCenterBar"> <h1>OLÁ, PAULO BECKMAN </h1> </li>
-                        <li class="textTopCenterBar"> <p>Seja bem-vindo de volta ao Phottrol! </p> </li>
-                    </ul>
+                    {% block topCenterBar %}{% endblock%}
                 </div>
 
-                <div class="centerEventInformation">
-                    <h1>Proximo Evento</h1>
+               {% block content%} {%endblock%}
 
-                </div>
             </div>
         </div>           
         

@@ -23,8 +23,14 @@ a {
     text-decoration: none;
     color: white; 
 }
+button {
+    outline: none;
+    cursor: pointer;
+}
+
 
 /* === HOME === */
+
 .container{
     display: grid;
     grid-template-columns: 258px 1fr;
@@ -32,8 +38,8 @@ a {
     margin: 20px 18px;
 }
 
-
 /* left bar links home*/
+
 .leftBar {
     padding: 10px;
     background: black;
@@ -104,7 +110,6 @@ nav ul li:last-child a {
     margin-left: 0;
 }
 
-
 /* top center bar home*/
 
 .topCenterBar {
@@ -135,7 +140,6 @@ nav ul li:last-child a {
 .topCenterBar p{
     margin-top: 5px
 }
-
 
 /* Center Event Information */
 
@@ -186,7 +190,8 @@ nav ul li:last-child a {
     margin-top: 11px;
 }
 
-/* EVENTS */
+
+/* === EVENTS === */
 
 .buttonNewEvent{
     margin-right: 26px;
@@ -201,6 +206,77 @@ nav ul li:last-child a {
 
     font-weight: 500;
     font-size: 25px;
-
 }
+
+/* filter events*/
+.eventCenterInformation{
+    display: flex;
+}
+
+.filter { 
+    margin: 33px auto;
+}
+
+.filter input{
+    border: 1px solid var(--color-primary);
+    width:706px; 
+    height: 80px;
+    border-radius: 50px;
+
+    outline: none;
+    padding:  0 41px;
+    font-size: 25px;
+}
+
+.filter input::placeholder{
+    font-weight: normal;
+    color: #A0A0A0;
+}
+
+.filter button {
+    background: var(--color-primary);
+    padding: 23px 25px;
+    border-radius: 20px;
+    margin-left: 15px;
+    color: var(--color-white);
+    font-weight: normal;
+    font-size: 25px;
+}
+
+/* Table Results Events*/
+
+table {
+    text-align: left;
+    border-spacing: 0;
+}
+
+table thead tr {
+    font-weight: 500;
+    font-size: 30px;
+}
+
+table tbody tr {
+    font-weight: normal;
+    font-size: 25px;
+}
+
+td, th {
+    color: var(--color-text-primary);
+    padding: 30px 0;
+    border-bottom: 1px solid #cacaca;
+}
+
+tbody tr:last-child td{
+    border-bottom: none;
+}
+
+tr td a {
+    background: var(--color-primary);
+    padding: 16px 16px;
+    border-radius: 20px;
+    color: var(--color-white);
+    font-weight: normal;
+    font-size: 25px;
+}
+
 

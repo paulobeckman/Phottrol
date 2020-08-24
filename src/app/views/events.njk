@@ -8,3 +8,59 @@
         <a href="/create"> + Novo Evento </a>
     </div>
 {% endblock %}
+
+{% block content %}
+    <div class="eventCenterInformation">
+        <form class="filter" action="/events" method='GET'>
+            <input 
+                type="text",
+                name="filter"
+                placeholder="Buscar por tipo ou local"
+                value={{filter}}
+            >
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
+
+    <table width= "100%">
+        <thead>
+            <tr>
+                <th>Tipo</th>
+                <th>Data</th>
+                <th>Cliente</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+                <td>Casamento</td>
+                <td>20/10/2020</td>
+                <td>Fernanda Silva</td>
+                <td><a href="*">Ver mais</a></td>
+            </tr>
+
+            <tr>
+                <td>Casamento</td>
+                <td>20/10/2020</td>
+                <td>Fernanda Silva</td>
+                <td><a href="*">Ver mais</a></td>
+            </tr>
+
+            <tr>
+                <td>Casamento</td>
+                <td>20/10/2020</td>
+                <td>Fernanda Silva</td>
+                <td><a href="*">Ver mais</a></td>
+            </tr>
+            
+            <tr>
+                <td>Casamento</td>
+                <td>20/10/2020</td>
+                <td>Fernanda Silva</td>
+                <td><a href="*">Ver mais</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -12,5 +12,6 @@ routes.get("/", function(req, res){
 routes.get("/home", home.index)
 
 routes.get("/events", events.index)
+routes.get("/events/create", events.create)
 
 module.exports = routes

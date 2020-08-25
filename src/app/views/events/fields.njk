@@ -1,0 +1,107 @@
+<div class="item">
+    <div>Nome do Cliente</div>
+    <div>
+        <input 
+            type="text"
+            name="name"
+            value=""
+        >
+    </div>
+</div>
+
+<div class="item">
+    <div>Endereço</div>
+    <div>
+        <input 
+            type="text"
+            name="address"
+            value=""
+        >
+    </div>
+</div>
+
+<div class="detailsColumn">
+    <div class="item">
+        <div>Dia</div>
+        <div>
+            <input 
+                type="date"
+                name="date"
+                value=""
+            >
+        </div>
+    </div>
+
+    <div class="item">
+        <div>Valor</div>
+        <div>
+            <input 
+                type="text"
+                name="cost"
+                value=""
+                {# mascara para de formatação do dinheiro/reais #}
+            >
+        </div>
+    </div>
+</div>
+
+<div class="detailsColumn">
+    <div class="item">
+        <div>Tipo</div>
+        <div>
+            <input 
+                type="text"
+                name="category"
+                placeholder="ex: casamento"
+                value=""
+            >
+        </div>
+
+    </div>
+
+    <div class="item">
+        <div>Turno</div> 
+        <div>
+            <select name="shift">
+                <option value="">
+                    Manhã
+                </option>
+
+                <option value="">
+                    Tarde
+                </option>
+
+                <option value="">
+                    Noite
+                </option>
+            </select>
+        </div>
+    </div>
+</div>
+
+
+<h3> Escalados para o evento</h3>
+
+<div class="item">
+    <div>Funcionários Escalados</div>
+    <div>
+        <select name="scaledStaff">
+            <option value="">
+
+            </option>
+        </select>
+    </div>
+</div>
+
+<div class="item">
+    <div>Equipamentos Escalados</div>
+    <div>
+        <select name="scaledEquipment">
+            <option value="">
+                
+            </option>
+        </select>
+    </div>
+</div>
+
+<button type="submit">Salvar</button>

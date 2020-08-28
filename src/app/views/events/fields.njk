@@ -39,7 +39,7 @@
                 type="text"
                 name="cost"
                 value=""
-                {# mascara para de formatação do dinheiro/reais #}
+                onkeydown="Mask.apply(this,'formatBRL')"
             >
         </div>
     </div>
@@ -85,10 +85,14 @@
 <div class="item">
     <div>Funcionários Escalados</div>
     <div>
-        <select name="scaled_staff">
-            <option value="">
-
-            </option>
+        <select name="employees">
+            {% for employee in employeeOptions %}
+                <option value="{{employees.id}}"
+                        {% if events.employees_id == employees.id %} selected {% endif %}
+                >
+                    {{employee.name}}
+                </option>
+            {% endfor %}
         </select>
     </div>
 </div>
@@ -96,12 +100,17 @@
 <div class="item">
     <div>Equipamentos Escalados</div>
     <div>
-        <select name="scaled_equipment">
-            <option value="">
-                
-            </option>
+        <select name="equipment">
+            {%for equipment in equipmentOptions%}
+                <option value="{{equipment.id}}"
+                    {% if events.equipment_id == equipment.id %} selected {% endif %}}
+                >
+                {{equipment.name}} 
+                </option>
+            {%endfor%}
         </select>
     </div>
 </div>
 
 <button type="submit">Salvar</button>
+

@@ -1,11 +1,20 @@
 const db = require('../../config/db')
-const { query } = require('express')
 
 module.exports = {
+    all(callback){
+        db.query (`
+            SELECT * FROM events
+        `, function(err, results){
+            if(err) throw `Database Error! ${err}`
+
+            callback(results.rows)
+        })
+    },
+
     create(data, callback){
         const query = `
-            INSERT INTO events
-                create_name,
+            INSERT INTO events (
+                client_name,
                 address,
                 date_event,
                 cost,
@@ -13,12 +22,12 @@ module.exports = {
                 shift,
                 employees_id,
                 equipment_id
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, )
-            RETURNIG id 
+            ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+            RETURNING id 
         `
 
         const values = [
-            data.create_name,
+            data.client_name,
             data.address,
             data.date_event,
             data.cost,

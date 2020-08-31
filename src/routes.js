@@ -13,5 +13,6 @@ routes.get("/home", home.index)
 
 routes.get("/events", events.index)
 routes.get("/events/create", events.create)
+routes.post("/events", events.post)
 
 module.exports = routes

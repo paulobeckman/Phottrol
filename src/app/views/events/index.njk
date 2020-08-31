@@ -33,33 +33,14 @@
         </thead>
         
         <tbody>
-            <tr>
-                <td>Casamento</td>
-                <td>20/10/2020</td>
-                <td>Fernanda Silva</td>
-                <td><a href="*">Ver mais</a></td>
-            </tr>
-
-            <tr>
-                <td>Casamento</td>
-                <td>20/10/2020</td>
-                <td>Fernanda Silva</td>
-                <td><a href="*">Ver mais</a></td>
-            </tr>
-
-            <tr>
-                <td>Casamento</td>
-                <td>20/10/2020</td>
-                <td>Fernanda Silva</td>
-                <td><a href="*">Ver mais</a></td>
-            </tr>
-            
-            <tr>
-                <td>Casamento</td>
-                <td>20/10/2020</td>
-                <td>Fernanda Silva</td>
-                <td><a href="*">Ver mais</a></td>
-            </tr>
+            {% for event in events%}
+                <tr>
+                    <td>{{event.category}}</td>
+                    <td>{{event.date_event}}</td>
+                    <td>{{event.client_name}}</td>
+                    <td><a href="{{event.id}}">Ver mais</a></td>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
 

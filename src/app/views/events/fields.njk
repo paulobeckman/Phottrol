@@ -63,15 +63,15 @@
         <div>Turno</div> 
         <div>
             <select name="shift">
-                <option value="">
+                <option value="Manhã">
                     Manhã
                 </option>
 
-                <option value="">
+                <option value="Tarde">
                     Tarde
                 </option>
 
-                <option value="">
+                <option value="Noite">
                     Noite
                 </option>
             </select>
@@ -85,10 +85,10 @@
 <div class="item">
     <div>Funcionários Escalados</div>
     <div>
-        <select name="employees">
+        <select name="employees_id">
             {% for employee in employeeOptions %}
-                <option value="{{employees.id}}"
-                        {% if events.employees_id == employees.id %} selected {% endif %}
+                <option value="{{employee.id}}"
+                        {% if events.employees_id == employee.id %} selected {% endif %}
                 >
                     {{employee.name}}
                 </option>
@@ -100,7 +100,7 @@
 <div class="item">
     <div>Equipamentos Escalados</div>
     <div>
-        <select name="equipment">
+        <select name="equipment_id">
             {%for equipment in equipmentOptions%}
                 <option value="{{equipment.id}}"
                     {% if events.equipment_id == equipment.id %} selected {% endif %}}

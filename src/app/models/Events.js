@@ -10,7 +10,6 @@ module.exports = {
             callback(results.rows)
         })
     },
-
     create(data, callback){
         const query = `
             INSERT INTO events (
@@ -19,10 +18,8 @@ module.exports = {
                 date_event,
                 cost,
                 category,
-                shift,
-                employees_id,
-                equipment_id
-            ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+                shift
+            ) VALUES ($1, $2, $3, $4, $5, $6)
             RETURNING id 
         `
 
@@ -32,9 +29,7 @@ module.exports = {
             data.date_event,
             data.cost,
             data.category,
-            data.shift,
-            data.employees_id,
-            data.equipment_id
+            data.shift
         ]
 
         db.query(query, values, function(err, results){
@@ -42,6 +37,16 @@ module.exports = {
 
             callback(results.rows[0])
         })
+    },
+    find(id, callback){
+        db.query (`
+            SELECT * 
+            FROM events 
+            WHERE events.id = $1`,[id], function(err, results){
+                if(err) throw `Database Error! ${err}`
+            
+                callback(results.rows[0])
+            })
     },
     employeesSelectOptions(callback){
         db.query(`SELECT name, id FROM employees`, function(err, results) {

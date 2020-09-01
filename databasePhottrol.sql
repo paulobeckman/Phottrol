@@ -5,9 +5,7 @@ CREATE TABLE "events" (
   "date_event" timestamp NOT NULL,
   "cost" text NOT NULL,
   "category" text NOT NULL,
-  "shift" text,
-  "employees_id" int UNIQUE,
-  "equipment_id" int UNIQUE
+  "shift" text
 );
 
 CREATE TABLE "employees" (
@@ -15,8 +13,7 @@ CREATE TABLE "employees" (
   "office" text NOT NULL,
   "name" text NOT NULL,
   "birth" timestamp,
-  "salary" text,
-  "events_id" int
+  "salary" text
 );
 
 CREATE TABLE "equipment" (
@@ -26,8 +23,7 @@ CREATE TABLE "equipment" (
   "cost" text,
   "depreciation" text,
   "acquisition_date" timestamp,
-  "replacement_date" timestamp,
-  "events_id" int
+  "replacement_date" timestamp
 );
 
 CREATE TABLE "events_employees" (
@@ -40,10 +36,10 @@ CREATE TABLE "events_equipment" (
   "equipment_id" int
 );
 
-ALTER TABLE "events_employees" ADD FOREIGN KEY ("events_id") REFERENCES "events" ("employees_id");
+ALTER TABLE "events_employees" ADD FOREIGN KEY ("events_id") REFERENCES "events" ("id");
 
 ALTER TABLE "events_employees" ADD FOREIGN KEY ("employees_id") REFERENCES "employees" ("id");
 
-ALTER TABLE "events_equipment" ADD FOREIGN KEY ("events_id") REFERENCES "events" ("equipment_id");
+ALTER TABLE "events_equipment" ADD FOREIGN KEY ("events_id") REFERENCES "events" ("id");
 
 ALTER TABLE "events_equipment" ADD FOREIGN KEY ("equipment_id") REFERENCES "equipment" ("id");

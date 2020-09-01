@@ -14,5 +14,5 @@ module.exports = {
             birthDay: `${day}/${month}`,
             format: `${day}/${month}/${year}`
         }
-    }
+    },
 }

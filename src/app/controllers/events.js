@@ -5,8 +5,10 @@ module.exports ={
     index(req, res){
         Events.all(function(events){
 
-            events.date_event = date(events.date_event).format
-
+            for (let i = 0; i < events.length; i++) {
+                events[i].date_event = date(events[i].date_event).format
+            }
+            
             return res.render("events/index", {events})
         })
     },
@@ -17,6 +19,15 @@ module.exports ={
                 return res.render("events/create", {employeeOptions, equipmentOptions})
 
             })
+        })
+    },
+
+    show(req, res){
+        Events.find(req.params.id, function(event){
+            if(!event) return res.send("Evento não foi encontrado")
+
+            console.log(event)
+            return res.render("events/show", {event})
         })
     },
 

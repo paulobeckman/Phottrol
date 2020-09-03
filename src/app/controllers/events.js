@@ -25,8 +25,9 @@ module.exports ={
     show(req, res){
         Events.find(req.params.id, function(event){
             if(!event) return res.send("Evento não foi encontrado")
+            
+            event.date_event = date(event.date_event).format
 
-            console.log(event)
             return res.render("events/show", {event})
         })
     },

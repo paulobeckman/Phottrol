@@ -1,1 +1,82 @@
 {% extends 'layout.njk'%}
+
+
+{% block topCenterBar %}
+    <div class="textTopCenterBar">
+        <h1>EVENTOS</h1>
+    </div>
+    <div class="buttonTopCenterBar">
+        <a href="events/1/edit">Editar</a>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="cardShow">
+
+        <div class="titleCenterInformation">
+            <h1>{{event.category}}</h1>
+        </div>
+        
+        <div class="rowPrimary">
+            <div class="item">
+                <div class="innerSquare">{{event.date_event}}</div>
+                <div>Dia</div>
+            </div>
+
+            <div class="item">
+                <div class="innerSquare">{{event.shift}}</div>
+                <div>Turno</div>
+            </div>
+
+            <div class="item">
+                <div class="innerSquare">{{event.cost}}</div>
+                <div>Valor</div>
+            </div>
+        </div>
+
+        <div class="rowSecond">
+            <div class="item ">
+                <div class="innerSquare">{{event.client_name}}</div>
+                <div>Cliente</div>
+            </div>
+        </div>
+
+        <div class="rowthird">
+            <div class="item ">
+                <div class="innerSquare">{{event.address}}</div>
+            <div>Endereço</div>
+            </div>
+        </div> 
+
+        <div class="bar"></div>
+
+        <div class="moreInformations">ESCALADOS PARA O EVENTO</div>       
+    
+        <div class="rowPrimary">
+            <div class="item">
+                <div class="innerSquare">
+                    <ul>
+                        <li> João Silva</li>
+                        <li> João Silva</li>
+                        <li> João Silva</li>
+                    </ul>
+                </div>
+                <div>Funcionários</div>
+            </div>
+
+            <div class="item">
+                <div class="innerSquare">
+                    <ul>
+                        <li> Canon T6</li>
+                        <li> Canon T6</li>
+                        <li> Canon T6</li>
+                    </ul>
+                </div>
+                <div>Equipamentos</div>
+            </div>
+        </div>
+    
+    </div>
+{% endblock %}

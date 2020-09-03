@@ -2,9 +2,10 @@
 :root {
     --color-primary: #332A7C;
     --color-secondary: #FFA000;
-    --color-white: #FFFFFF;
     --color-text-primary: #514865;
     --color-button-secondary: #137866;
+    --color-white: #FFFFFF;
+    --color-red: #F25767;
 }
 
 * {
@@ -199,11 +200,11 @@ nav ul li:last-child a {
 
 /* === EVENTS === */
 
-.buttonNewEvent{
+.buttonTopCenterBar{
     margin-right: 26px;
 }
 
-.buttonNewEvent a{
+.buttonTopCenterBar a{
     background: var(--color-button-secondary);
     padding: 13px 17px;
     border-radius: 20px;
@@ -344,7 +345,7 @@ tr td a {
 }
 
 .details .detailsColumn div {
-    width: 100%
+    width: 100%;
 }
 
 .details .detailsColumn div:nth-child(2){
@@ -361,3 +362,74 @@ tr td a {
     font-weight: normal;
     font-size: 25px;
 }
+
+.cardShow {
+    background: #F6F6FC;
+    width: 100%;
+    height: 100%;
+
+    border-radius: 30px;
+    margin-top: 34px;
+}
+
+.cardShow .titleCenterInformation h1{
+    font-weight: normal;
+    font-size: 35px;
+    color: var(--color-text-primary);
+    
+    padding-left: 6px;
+    border-left: solid 6px var(--color-primary)
+}
+
+.cardShow .rowPrimary, 
+.rowSecond, 
+.rowthird {
+    display: flex;
+    justify-content: center;
+}
+
+.cardShow .item {
+    margin-top: 29px;
+
+    background: var(--color-white);
+    border-radius: 15px;
+
+    text-align: center;
+
+}
+
+.cardShow  div + div {
+    margin-left: 78px;
+}
+
+.item div:last-child,
+.moreInformations{
+    color: var(--color-text-primary);
+    font-weight: bold;
+    font-size: 30px;
+    margin-left: 0;
+
+    padding: 10px 68px;
+}
+
+.item .innerSquare {
+    background: var(--color-red);
+    color: var(--color-white);
+    font-weight: normal;
+    font-size: 30px;
+
+    border-radius: 15px;
+    padding: 13px;
+    margin: 8px
+}
+
+.cardShow .bar {
+    border: solid 1px #CCCCCE;
+    margin-top: 50px;
+}
+
+.cardShow .moreInformations {
+    margin-top: 36px;
+    text-align: center;
+}
+    

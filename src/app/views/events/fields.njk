@@ -4,7 +4,7 @@
         <input 
             type="text"
             name="client_name"
-            value=""
+            value="{{ event.client_name }}"
         >
     </div>
 </div>
@@ -15,7 +15,7 @@
         <input 
             type="text"
             name="address"
-            value=""
+            value=" {{ event.address }}"
         >
     </div>
 </div>
@@ -27,7 +27,7 @@
             <input 
                 type="date"
                 name="date_event"
-                value=""
+                value="{{ event.date_event }}"
             >
         </div>
     </div>
@@ -38,7 +38,7 @@
             <input 
                 type="text"
                 name="cost"
-                value=""
+                value="{{event.cost}}"
                 onkeydown="Mask.apply(this,'formatBRL')"
             >
         </div>
@@ -53,7 +53,7 @@
                 type="text"
                 name="category"
                 placeholder="ex: casamento"
-                value=""
+                value="{{event.category}}"
             >
         </div>
 
@@ -63,15 +63,21 @@
         <div>Turno</div> 
         <div>
             <select name="shift">
-                <option value="Manhã">
+                <option value="Manhã"
+                    {% if event.shift == "Manhã" %} selected {% endif %}
+                >
                     Manhã
                 </option>
 
-                <option value="Tarde">
+                <option value="Tarde"
+                    {% if event.shift == "Tarde" %} selected {% endif %}
+                >
                     Tarde
                 </option>
 
-                <option value="Noite">
+                <option value="Noite"
+                    {% if event.shift == "Noite" %} selected {% endif %}
+                >
                     Noite
                 </option>
             </select>

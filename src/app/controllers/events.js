@@ -44,5 +44,29 @@ module.exports ={
         Events.create(req.body, function(events){
             return res.redirect("/events")
         })
+    },
+
+    edit(req, res) {
+        Events.find(req.params.id, function(event) {
+            if(!event) return res.send("Evento não foi encontrado")
+            
+            event.date_event = date(event.date_event).iso
+
+            return res.render("events/edit", {event})
+        })
+    },
+
+    put(req, res){
+        const keys = Object.keys(req.body)
+
+        for(key of keys) {
+            if (req.body[key] == ""){
+                return res.send("Por Favor, Preencha todos os dados")
+            }
+        }
+
+        Events.update(req.body, function(){
+            return res.redirect(`events/${req.body.id}`)
+        })
     }
 }

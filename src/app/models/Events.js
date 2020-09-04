@@ -48,6 +48,34 @@ module.exports = {
                 callback(results.rows[0])
             })
     },
+    update(data, callback){
+        const query = `
+            UPDATE events SET 
+                client_name = ($1),
+                address = ($2),
+                date_event = ($3),
+                cost = ($4),
+                category = ($5),
+                shift = ($6)
+            WHERE id = $7   
+        `
+
+        const values = [
+            data.client_name,
+            data.address,
+            data.date_event,
+            data.cost,
+            data.category,
+            data.shift,
+            data.id
+        ]
+
+        db.query(query, values, function(err, results){
+            if(err) throw `Database Error! ${err}`
+
+            callback()
+        })
+    },
     employeesSelectOptions(callback){
         db.query(`SELECT name, id FROM employees`, function(err, results) {
             if(err) throw `Database Error! ${err}`

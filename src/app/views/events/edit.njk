@@ -16,6 +16,20 @@
 
             {% include 'events/fields.njk'%}
             
+            <input 
+                type="hidden"
+                name="id"
+                value="{{event.id}}"
+            >
+        
+    </form>
+            
+            <form class="details formDelete" method="POST" action="/events?_method=DELETE">
+                <input type="hidden" name="id" value="{{event.id}}">
+                <button type="submit">Deletar</button>
+            </form>
+
         </section>
-</form>
+
+        {% include '../DeleteConfirm.njk'%}
 {% endblock %}

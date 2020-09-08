@@ -3,6 +3,7 @@ const routes = express.Router()
 
 const home = require('./app/controllers/home')
 const events = require('./app/controllers/events')
+const employees = require('./app/controllers/employees')
 
 
 routes.get("/", function(req, res){
@@ -18,5 +19,9 @@ routes.get("/events/:id/edit", events.edit)
 
 routes.put("/events", events.put)
 routes.post("/events", events.post)
+routes.delete("/events", events.delete)
+
+
+routes.get("/employees", employees.index)
 
 module.exports = routes

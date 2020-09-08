@@ -6,6 +6,7 @@
     --color-button-secondary: #137866;
     --color-white: #FFFFFF;
     --color-red: #F25767;
+    --color-red-delete: #D01823;
 }
 
 * {
@@ -354,13 +355,14 @@ tr td a {
 
 .details button {
     background: var(--color-primary);
-    padding: 23px 25px;
+    padding: 23px 55px;
     border-radius: 20px;
     float: right;
     margin-top: 40px;
     color: var(--color-white);
     font-weight: normal;
     font-size: 25px;
+    margin-right: 10px;
 }
 
 .cardShow {
@@ -430,4 +432,15 @@ tr td a {
     margin-top: 36px;
     text-align: center;
 }
-    
+
+/* == EVENT DELETE == */
+
+.details.formDelete button {
+    background: gray;
+    float: left
+}
+
+.details.formDelete button:hover {
+    background: var(--color-red-delete);
+    transition: 100ms;
+}

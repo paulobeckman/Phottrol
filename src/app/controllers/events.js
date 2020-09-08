@@ -68,5 +68,11 @@ module.exports ={
         Events.update(req.body, function(){
             return res.redirect(`events/${req.body.id}`)
         })
+    },
+
+    delete(req, res) {
+        Events.delete(req.body.id, function(){
+            return res.redirect("events")
+        })
     }
 }

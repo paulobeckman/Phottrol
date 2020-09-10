@@ -1,7 +1,49 @@
-{% include 'layout.njk' %}
+{% extends 'layout.njk' %}
 
 {% block topCenterBar %}
     <div class="textTopCenterBar">
         <h1>FUNCIONÁRIOS</h1>
     </div>
+
+    <div class="buttonTopCenterBar">
+        <a href="employees/create"> + Novo Funcionário</a>
+    </div>
 {% endblock %}
+
+
+{% block content %}
+    <div class="eventCenterInformation">
+        <form class="filter" method="GET" action="/employees">
+            <input 
+                type="text"
+                name="filter"
+                placeholder="Buscar por nome ou cargo"
+                value="{{filter}}"
+            >
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
+
+    <table width="100%">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Cargo</th>
+                <th>Aniversário</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for employee in employees %}
+                <tr>
+                    <td>{{employee.name}}</td>
+                    <td>{{employee.office}}</td>
+                    <td>{{employee.birth}}</td>
+                    <td><a href="employees/{{employee.id}}">Ver mais</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+

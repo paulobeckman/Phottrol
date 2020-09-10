@@ -23,5 +23,6 @@ routes.delete("/events", events.delete)
 
 
 routes.get("/employees", employees.index)
+routes.get("/employees/create", employees.create)
 
 module.exports = routes

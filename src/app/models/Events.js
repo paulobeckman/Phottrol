@@ -48,6 +48,19 @@ module.exports = {
                 callback(results.rows[0])
             })
     },
+    findBy(filter, callback){
+        db.query(`
+            SELECT * 
+            FROM events
+            WHERE events.category ILIKE '%${filter}%'
+            OR events.client_name ILIKE '%${filter}%'
+
+        `, function (err, results){
+            if(err) throw `Database error ${err}`
+
+            callback(results.rows)
+        })
+    },
     update(data, callback){
         const query = `
             UPDATE events SET 
@@ -99,5 +112,31 @@ module.exports = {
 
             callback(results.rows)
         })
+    },
+    paginate(params) {
+        const { filter, limit, offset, callback} = params
+        let query = "",
+            filterQuery = ""
+
+        if(filter){
+            filterQuery = `${query}
+                WHERE events.category ILIKE '%${filter}%'
+                OR events.client_name ILIKE '%${filter}%'
+            `
+        }
+
+        query = `
+            SELECT * 
+            FROM events
+            ${filterQuery}
+            LIMIT $1 OFFSET $2
+        `
+
+        db.query(query, [limit, offset], function(err, results){
+            if(err) throw `DATABASE ERROR ${err}`
+
+            callback(results.rows)
+        })
     }
+    
 }

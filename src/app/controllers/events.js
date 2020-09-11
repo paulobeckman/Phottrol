@@ -3,14 +3,32 @@ const Events = require('../models/Events')
 
 module.exports ={
     index(req, res){
-        Events.all(function(events){
+        let {filter, page, limit} = req.query
 
-            for (let i = 0; i < events.length; i++) {
-                events[i].date_event = date(events[i].date_event).format
+        page = page || 1
+        limit = limit || 2
+        let offset = limit * (page - 1)
+
+        const params = {
+            filter,
+            page,
+            limit,
+            offset,
+            callback (events) {
+                const pagination = {
+                    total: Math.ceil(events[0].total/limit),
+                    page
+                }
+
+                for (let i = 0; i < events.length; i++) {
+                    events[i].date_event = date(events[i].date_event).format
+                }
+
+                return res.render("events/index", {events, pagination, filter})
             }
-            
-            return res.render("events/index", {events})
-        })
+        }
+
+        Events.paginate(params)
     },
 
     create(req, res){

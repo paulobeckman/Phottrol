@@ -10,12 +10,13 @@
 {% endblock %}
 
 {% block content %}
+<div class="table-container">
     <div class="eventCenterInformation">
         <form class="filter" action="/events" method='GET'>
             <input 
                 type="text",
                 name="filter"
-                placeholder="Buscar por tipo ou local"
+                placeholder="Buscar por tipo ou cliente"
                 value={{filter}}
             >
             <button type="submit">Buscar</button>
@@ -44,10 +45,13 @@
         </tbody>
     </table>
 
-    <div class="pagination"
-        data-page={{pagination.page}}
-        data-total={{pagination.total}}
-        data-filter={{filter}}
-    ></div>
+    
+        <div class="pagination"
+            data-page={{pagination.page}}
+            data-total={{pagination.total}}
+            data-filter={{filter}}
+        ></div>
+    </div>
+    
 
 {% endblock %}

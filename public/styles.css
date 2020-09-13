@@ -444,3 +444,33 @@ tr td a {
     background: var(--color-red-delete);
     transition: 100ms;
 }
+
+
+/* pagination */
+
+.table-container {
+    display: grid;
+    grid-template-columns: 64px 1fr 16px/ 1fr;
+}
+
+.table-container .pagination {
+    margin-top: 40px;
+    text-align: center;
+    justify-content: center;
+}
+
+.pagination a,
+.pagination span {
+    font-size: 30px;
+    color: var(--color-primary);
+    text-decoration: none;
+    margin-right: 16px;
+}
+
+.pagination a:hover {
+    filter: brightness(0.3);
+    border-bottom: 1px solid var(--color-text-primary);
+}
+
+
+

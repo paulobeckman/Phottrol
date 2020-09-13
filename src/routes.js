@@ -12,17 +12,23 @@ routes.get("/", function(req, res){
 
 routes.get("/home", home.index)
 
+//events
 routes.get("/events", events.index)
 routes.get("/events/create", events.create)
 routes.get("/events/:id", events.show)
 routes.get("/events/:id/edit", events.edit)
 
-routes.put("/events", events.put)
 routes.post("/events", events.post)
+routes.put("/events", events.put)
 routes.delete("/events", events.delete)
 
 
+//employees
 routes.get("/employees", employees.index)
 routes.get("/employees/create", employees.create)
+
+routes.post("/employees", employees.post)
+
+
 
 module.exports = routes

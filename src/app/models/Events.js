@@ -117,16 +117,24 @@ module.exports = {
         const { filter, limit, offset, callback} = params
         let query = "",
             filterQuery = ""
+            totalQuery = `(
+                SELECT count(*) FROM events
+            ) AS total`
 
         if(filter){
             filterQuery = `${query}
                 WHERE events.category ILIKE '%${filter}%'
                 OR events.client_name ILIKE '%${filter}%'
             `
+
+            totalQuery = `(
+                SELECT count(*) FROM events
+                ${filterQuery}
+            ) as total`
         }
 
         query = `
-            SELECT * 
+            SELECT events.*, ${totalQuery} 
             FROM events
             ${filterQuery}
             LIMIT $1 OFFSET $2

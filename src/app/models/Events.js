@@ -23,6 +23,8 @@ module.exports = {
             RETURNING id 
         `
 
+        data.cost = data.cost.replace(/\D/g, "")
+
         const values = [
             data.client_name,
             data.address,

@@ -1,6 +1,15 @@
 const db = require("../../config/db");
 
 module.exports = {
+    all(callback){
+        db.query(` 
+            SELECT * 
+            FROM employees`, function(err, results){
+                if(err) throw `Database Error! ${err}`
+
+                callback(results.rows)
+            })
+    },
     create(data, callback){
         const query = `
             INSERT INTO employees (
@@ -11,6 +20,8 @@ module.exports = {
             ) VALUES ($1, $2, $3, $4)
             RETURNING id 
         `
+
+        data.salary = data.salary.replace(/\D/g, "")
 
         const values = [
             data.name,

@@ -1,0 +1,35 @@
+{% extends "layout.njk"%}
+
+{% block topCenterBar %}
+    <div class="textTopCenterBar">
+        <h1> EDITAR FUNCIONÁRIO</h1>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+    <form class="cardCreate"  method= "POST" action="/employees?_method=PUT">
+        <section class="avatar" style="background: url(https://source.unsplash.com/collection/9905479/430x500)no-repeat center center / cover"></section>
+
+        <section class="details">
+            <h3>Editar Funcionário</h3>
+
+            {% include 'employees/fields.njk'%}
+            
+            <input 
+                type="hidden"
+                name="id"
+                value="{{employee.id}}"
+            >
+        
+    </form>
+            
+            <form class="details formDelete" method="POST" action="/employees?_method=DELETE">
+                <input type="hidden" name="id" value="{{employee.id}}">
+                <button type="submit">Deletar</button>
+            </form>
+
+        </section>
+
+        {% include '../DeleteConfirm.njk'%}
+{% endblock %}

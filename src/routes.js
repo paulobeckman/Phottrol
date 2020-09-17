@@ -26,8 +26,12 @@ routes.delete("/events", events.delete)
 //employees
 routes.get("/employees", employees.index)
 routes.get("/employees/create", employees.create)
+routes.get("/employees/:id", employees.show)
+routes.get("/employees/:id/edit", employees.edit)
 
 routes.post("/employees", employees.post)
+routes.put("/employees", employees.put)
+routes.delete("/employees", employees.delete)
 
 
 

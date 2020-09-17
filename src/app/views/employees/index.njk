@@ -12,6 +12,9 @@
 
 
 {% block content %}
+<div class="table-container">
+
+
     <div class="eventCenterInformation">
         <form class="filter" method="GET" action="/employees">
             <input 
@@ -44,6 +47,13 @@
             {% endfor %}
         </tbody>
     </table>
+
+    <div class="pagination"
+        data-page={{pagination.page}}
+        data-total={{pagination.total}} 
+        data-filter={{filter}}
+    ></div>
+</div>
 {% endblock %}
 
-
+ 

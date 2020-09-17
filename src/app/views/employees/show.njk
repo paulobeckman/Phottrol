@@ -1,0 +1,46 @@
+{% extends 'layout.njk'%}
+
+{% block topCenterBar %}
+    <div class="textTopCenterBar">
+        <h1>FUNCIONÁRIO</h1>
+    </div>
+    <div class="buttonTopCenterBar">
+        <a href="/employees/{{employee.id}}/edit">Editar</a>
+    </div>
+{% endblock%}
+
+
+{% block content %}
+    <div class="cardShow">
+
+        <div class="titleCenterInformation">
+            <h1>Funcionário</h1>
+        </div>
+        
+        <div class="rowPrimary">
+            <div class="item">
+                <div class="innerSquare">{{employee.office}}</div>
+                <div>Cargo</div>
+            </div>
+
+            <div class="item">
+                <div class="innerSquare">{{employee.name}}</div>
+                <div>Nome</div>
+            </div>
+        </div>
+
+        <div class="rowPrimary">
+            <div class="item">
+                <div class="innerSquare">{{employee.birth}}</div>
+                <div>Aniversário</div>
+            </div>
+
+            <div class="item">
+                <div class="innerSquare">{{employee.salary}}</div>
+                <div>Salário</div>
+            </div>
+        </div>
+
+        
+
+{% endblock %}

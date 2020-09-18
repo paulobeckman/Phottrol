@@ -16,7 +16,8 @@ module.exports ={
             offset,
             callback (events) {
                 const pagination = {
-                    total: Math.ceil(events[0].total/limit),
+                    total: events[0] ? Math.ceil(events[0].total / limit) : 0 ,
+
                     page
                 }
 

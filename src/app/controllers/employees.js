@@ -18,7 +18,7 @@ module.exports = {
                 offset,
                 callback (employees) {
                     const pagination = {
-                        total: Math.ceil(employees[0].total/limit),
+                        total: employees[0] ? Math.ceil(employees[0].total / limit) : 0 ,
                         page
                     }
 

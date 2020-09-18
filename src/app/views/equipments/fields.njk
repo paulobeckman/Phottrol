@@ -1,0 +1,80 @@
+<div class="item">
+    <div>Tipo</div>
+    <div>
+        <input 
+            type="text"
+            name="type"
+            placeholder="ex: camera"
+            value=" {{ equipment.type }}"
+        >
+    </div>
+</div>
+
+<div class="item">
+    <div>Nome</div>
+    <div>
+        <input 
+            type="text"
+            name="name"
+            value="{{ equipment.name }}"
+        >
+    </div>
+</div>
+
+<div class="detailsColumn">
+    <div class="item">
+        <div>Data de Aquisição</div>
+        <div>
+            <input 
+                type="date"
+                name="acquisition_date"
+                value="{{ equipment.acquisition_date }}"
+            >
+        </div>
+    </div>
+
+    <div class="item">
+        <div>Valor do Equipamento</div>
+        <div>
+            <input 
+                type="text"
+                name="cost"
+                value="{{ equipment.cost }}"
+                onkeydown="Mask.apply(this,'formatBRL')"
+
+            >
+        </div>
+    </div>
+</div>
+
+<div class="detailsColumn">
+    <div class="item">
+        <div>Data de Substituição</div>
+        <div>
+            <input 
+                type="date"
+                name="replacement_date"
+                value="{{ equipment.replacement_date }}"
+            >
+        </div>
+    </div>
+
+    <div class="item">
+        <div>Valor Depreciação</div>
+        <div>
+            <input 
+                type="text"
+                name="depreciation"
+                value="{{ equipment.depreciation}}"
+                onkeydown="Mask.apply(this,'formatBRL')"
+
+            >
+        </div>
+    </div>
+</div>
+
+
+
+
+<button type="submit">Salvar</button>
+

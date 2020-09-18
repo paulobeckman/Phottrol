@@ -4,6 +4,7 @@ const routes = express.Router()
 const home = require('./app/controllers/home')
 const events = require('./app/controllers/events')
 const employees = require('./app/controllers/employees')
+const equipments = require('./app/controllers/equipments')
 
 
 routes.get("/", function(req, res){
@@ -32,6 +33,13 @@ routes.get("/employees/:id/edit", employees.edit)
 routes.post("/employees", employees.post)
 routes.put("/employees", employees.put)
 routes.delete("/employees", employees.delete)
+
+
+//equipment
+routes.get("/equipments", equipments.index)
+routes.get("/equipments/create", equipments.create)
+
+routes.post("/equipments", equipments.post)
 
 
 

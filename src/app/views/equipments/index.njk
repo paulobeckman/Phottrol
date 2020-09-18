@@ -2,21 +2,21 @@
 
 {% block topCenterBar %}
     <div class="textTopCenterBar">
-        <h1> EVENTOS</h1>
+        <h1> EQUIPAMENTO </h1>
     </div>
     <div class="buttonTopCenterBar">
-        <a href="events/create"> + Novo Evento </a>
+        <a href="equipments/create"> + Novo Equipamento </a>
     </div>
 {% endblock %}
 
 {% block content %}
 <div class="table-container">
     <div class="eventCenterInformation">
-        <form class="filter" action="/events" method='GET'>
+        <form class="filter" action="/equipments" method='GET'>
             <input 
                 type="text",
                 name="filter"
-                placeholder="Buscar por tipo ou cliente"
+                placeholder="Buscar por tipo ou nome"
                 value={{filter}}
             >
             <button type="submit">Buscar</button>
@@ -27,19 +27,19 @@
         <thead>
             <tr>
                 <th>Tipo</th>
-                <th>Data</th>
-                <th>Cliente</th>
+                <th>Nome</th>
+                <th>Substituição</th>
                 <th>Ação</th>
             </tr>
         </thead>
         
         <tbody>
-            {% for event in events%}
+            {% for equipment in equipments%}
                 <tr>
-                    <td>{{event.category}}</td>
-                    <td>{{event.date_event}}</td>
-                    <td>{{event.client_name}}</td>
-                    <td><a href="events/{{event.id}}">Ver mais</a></td>
+                    <td>{{equipment.type}}</td>
+                    <td>{{equipment.name}}</td>
+                    <td>{{equipment.replacement_date}}</td>
+                    <td><a href="equipments/{{equipment.id}}">Ver mais</a></td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -52,6 +52,4 @@
             data-filter={{filter}}
         ></div>
 </div>
-    
-
 {% endblock %}

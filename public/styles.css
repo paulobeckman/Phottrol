@@ -41,7 +41,7 @@ select {
 
 .container{
     display: grid;
-    grid-template-columns: 258px 1fr;
+    grid-template-columns: 210px 1fr;
     gap: 73px;
     margin: 20px 18px;
 }
@@ -68,20 +68,20 @@ select {
 }
 
 nav ul .titleLeftBar{
-    margin-top: 58px;
+    margin-top: 38px;
 
     text-align: center;
     color: var(--color-white);
     font-weight: bold;
-    font-size: 20px;
+    font-size: 23px;
     line-height: 23px;
 }
 
 nav ul .linkHome {
-    margin-top: 88px;
+    margin-top: 70px;
     font-weight: 500;
-    font-size: 20px;
-    margin-left: 19px;
+    font-size: 16px;
+    margin-left: 8px;
 
     display: grid;
     grid-template-columns: 30px 1fr;
@@ -95,16 +95,16 @@ nav ul .linkHome a {
 
 nav ul .linkHome i {
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
 
 }
 
 nav ul li:nth-child(2){
-    margin-top: 100px;
+    margin-top: 120px;
 }
 
 nav ul li:last-child{
-    margin-top: 181px;
+    margin-top: 120px;
     margin-left: 0;
     grid-template-columns: 1fr 1fr;
 }
@@ -123,7 +123,7 @@ nav ul li:last-child a {
 .topCenterBar {
     background: var(--color-secondary);
     width: 100%;
-    height: 131px;
+    height: 100px;
 
     color: var(--color-white);
     border-radius: 30px;
@@ -142,7 +142,7 @@ nav ul li:last-child a {
 
 .topCenterBar h1{
     font-weight: 500;
-    font-size: 40px;   
+    font-size: 30px;   
 }
 
 .topCenterBar p{
@@ -152,12 +152,12 @@ nav ul li:last-child a {
 /* Center Event Information */
 
 .centerEventInformation {
-    margin-top: 40px
+    margin-top: 26px;
 }
 
 .centerEventInformation h1 {
     font-weight: 500;
-    font-size: 30px;
+    font-size:26px;
     color: var(--color-text-primary);
 }
 
@@ -166,16 +166,16 @@ nav ul li:last-child a {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 213px;
-    grid-row-gap: 133px;
+    grid-row-gap: 100px;
 
     position: relative;
-    padding: 58px 100px;
+    padding: 50px 100px;
 }
 
 .cardNextEvent {
     border: 1px solid var(--color-primary);
     border-radius: 15px;
-    height: 122px;
+    height: 115px;
     display: grid;
     align-items: center;
 }
@@ -183,7 +183,7 @@ nav ul li:last-child a {
 .cardNextEvent h2 {
     color: var(--color-secondary);
     font-weight: bold;
-    font-size: 25px;
+    font-size: 18px;
     text-align: center;
 
     margin: auto 17px;
@@ -192,7 +192,7 @@ nav ul li:last-child a {
 .homeNextEvent h3 {
     color: var(--color-text-primary);
     font-weight: 300;
-    font-size: 25px;
+    font-size: 20px;
     text-align: center;
 
     margin-top: 11px;
@@ -207,13 +207,13 @@ nav ul li:last-child a {
 
 .buttonTopCenterBar a{
     background: var(--color-button-secondary);
-    padding: 13px 17px;
+    padding: 10px 14px;
     border-radius: 20px;
     box-shadow: 2px 2px 6px rgba(1, 1, 1, 0.3);
     border: solid 1px #BEBEBE;
 
     font-weight: 500;
-    font-size: 25px;
+    font-size: 17px;
 }
 
 /* filter events*/
@@ -227,12 +227,12 @@ nav ul li:last-child a {
 
 .filter input{
     border: 1px solid var(--color-primary);
-    width:706px; 
-    height: 80px;
+    width:600px; 
+    height: 58px;
     border-radius: 50px;
 
-    padding:  0 41px;
-    font-size: 25px;
+    padding:  0 30px;
+    font-size: 20px;
 }
 
 .filter input::placeholder{
@@ -242,12 +242,12 @@ nav ul li:last-child a {
 
 .filter button {
     background: var(--color-primary);
-    padding: 23px 25px;
+    padding: 16px 16px;
     border-radius: 20px;
     margin-left: 15px;
     color: var(--color-white);
     font-weight: normal;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 /* Table Results Events*/
@@ -259,12 +259,12 @@ table {
 
 table thead tr {
     font-weight: 500;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 table tbody tr {
     font-weight: normal;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 td, th {
@@ -279,11 +279,11 @@ tbody tr:last-child td{
 
 tr td a {
     background: var(--color-primary);
-    padding: 16px 16px;
+    padding: 12px 12px;
     border-radius: 20px;
     color: var(--color-white);
     font-weight: normal;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 
@@ -312,15 +312,15 @@ tr td a {
 
 .details h3{
     font-weight: 500;
-    font-size: 25px;
+    font-size: 23px;
     color: var(--color-text-primary);
 
-    margin-top:  19px;
+    margin-top: 19px;
 }
 
 .details div:nth-child(1) {
     font-weight: normal;
-    font-size: 20px;
+    font-size: 18px;
     color: var(--color-text-primary);
 
     margin-bottom: 8px;
@@ -333,9 +333,9 @@ tr td a {
     border-radius: 15px;
 
     width: 98%;
-    height: 60px;
+    height: 50px;
     padding:  0 20px;
-    font-size: 22px;
+    font-size: 16px;
     border: 1px solid var(--color-primary);
 }
 
@@ -345,30 +345,31 @@ tr td a {
     width: 99%;
 }
 
+.details .detailsColumn .item {
+    margin-top: 0;
+    margin-bottom: 0;
+}
 .details .detailsColumn div {
     width: 100%;
 }
 
-.details .detailsColumn div:nth-child(2){
-    margin-top: 21px;
-}
-
 .details button {
     background: var(--color-primary);
-    padding: 23px 55px;
+    padding: 15px 25px;
     border-radius: 20px;
     float: right;
-    margin-top: 40px;
+    margin-top: 30px;
     color: var(--color-white);
     font-weight: normal;
-    font-size: 25px;
+    font-size: 20px;
     margin-right: 10px;
+    margin-bottom: 20px;
 }
 
 .cardShow {
     background: #F6F6FC;
     width: 100%;
-    height: 100%;
+    height: 80%;
 
     border-radius: 30px;
     margin-top: 34px;
@@ -376,7 +377,7 @@ tr td a {
 
 .cardShow .titleCenterInformation h1{
     font-weight: normal;
-    font-size: 35px;
+    font-size: 25px;
     color: var(--color-text-primary);
     
     padding-left: 6px;
@@ -408,7 +409,7 @@ tr td a {
 .moreInformations{
     color: var(--color-text-primary);
     font-weight: bold;
-    font-size: 30px;
+    font-size: 22px;
     margin-left: 0;
 }
 
@@ -416,7 +417,7 @@ tr td a {
     background: var(--color-red);
     color: var(--color-white);
     font-weight: normal;
-    font-size: 30px;
+    font-size: 25px;
 
     border-radius: 15px;
     padding: 13px;
@@ -461,7 +462,7 @@ tr td a {
 
 .pagination a,
 .pagination span {
-    font-size: 30px;
+    font-size: 20px;
     color: var(--color-primary);
     text-decoration: none;
     margin-right: 16px;

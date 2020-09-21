@@ -1,0 +1,57 @@
+{% extends "layout.njk"%}
+
+{% block topCenterBar %}
+    <div class="textTopCenterBar">
+        <h1>EQUIPAMENTO</h1>
+    </div>
+    <div class="buttonTopCenterBar">
+        <a href="/equipments/{{equipment.id}}/edit">Editar</a>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="cardShow">
+
+        <div class="titleCenterInformation">
+            <h1>{{equipment.type}}</h1>
+        </div>
+        
+        <div class="rowPrimary">
+            <div class="item">
+                <div class="innerSquare">{{equipment.type}}</div>
+                <div>Tipo</div>
+            </div>
+
+            <div class="item">
+                <div class="innerSquare">{{equipment.name}}</div>
+                <div>Nome</div>
+            </div>
+
+            <div class="item">
+                <div class="innerSquare">{{equipment.cost}}</div>
+                <div>Valor</div>
+            </div>
+        </div>
+
+        <div class="rowPrimary">
+            <div class="item">
+                <div class="innerSquare">{{equipment.depreciation}}</div>
+                <div>Depreciação</div>
+            </div>
+
+            <div class="item">
+                <div class="innerSquare">{{equipment.acquisition_date}}</div>
+                <div>Aquisição</div>
+            </div>
+
+            <div class="item">
+                <div class="innerSquare">{{equipment.replacement_date}}</div>
+                <div>Substituição</div>
+            </div>
+        </div>
+
+        
+    
+    </div>
+{% endblock %}

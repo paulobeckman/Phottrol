@@ -1,4 +1,4 @@
-const { date } = require('../../lib/utils')
+const { date, formatPrice } = require('../../lib/utils')
 const Events = require('../models/Events')
 
 module.exports ={
@@ -46,6 +46,8 @@ module.exports ={
             if(!event) return res.send("Evento não foi encontrado")
             
             event.date_event = date(event.date_event).format
+            event.cost = formatPrice(event.cost)
+
 
             return res.render("events/show", {event})
         })
@@ -61,7 +63,7 @@ module.exports ={
             }
         }
         Events.create(req.body, function(events){
-            return res.redirect("/events")
+            return res.redirect(`events/${req.body.id}`)
         })
     },
 

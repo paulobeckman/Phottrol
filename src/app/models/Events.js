@@ -75,6 +75,9 @@ module.exports = {
             WHERE id = $7   
         `
 
+        data.cost = data.cost.replace(/\D/g, "")
+
+
         const values = [
             data.client_name,
             data.address,

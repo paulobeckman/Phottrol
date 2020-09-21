@@ -38,8 +38,12 @@ routes.delete("/employees", employees.delete)
 //equipment
 routes.get("/equipments", equipments.index)
 routes.get("/equipments/create", equipments.create)
+routes.get("/equipments/:id", equipments.show)
+routes.get("/equipments/:id/edit", equipments.edit)
 
 routes.post("/equipments", equipments.post)
+routes.put("/equipments", equipments.put)
+routes.delete("/equipments", equipments.delete)
 
 
 

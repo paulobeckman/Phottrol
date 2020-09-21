@@ -1,5 +1,5 @@
+const { date, formatPrice } = require('../../lib/utils')
 const Employees = require("../models/Employees")
-const { date } = require('../../lib/utils')
 
 
 module.exports = {
@@ -46,7 +46,7 @@ module.exports = {
         }
         
         Employees.create(req.body, function(employees){
-            return res.redirect("/employees")
+            return res.redirect(`employees/${req.body.id}`)
 
         })
 
@@ -57,6 +57,7 @@ module.exports = {
             if(!employee) res.send("Evento não foi encontrado")
 
             employee.birth = date(employee.birth).format
+            employee.salary = formatPrice(employee.salary)
 
             return res.render("employees/show", {employee})
         })
@@ -82,7 +83,7 @@ module.exports = {
 
         Employees.update(req.body, function(){
         
-            return res.redirect("/employees")
+            return res.redirect(`employees/${req.body.id}`)
         })
 
     },

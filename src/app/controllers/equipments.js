@@ -44,7 +44,7 @@ module.exports ={
         }
 
         Equipments.create(req.body, function(equipment){
-            return res.redirect(`equipments/${req.body.id}`)
+            return res.redirect(`equipments/${equipment.id}`)
 
         })
     },

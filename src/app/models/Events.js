@@ -10,7 +10,7 @@ module.exports = {
             callback(results.rows)
         })
     },
-    create(data, callback){
+    create(data){
         const query = `
             INSERT INTO events (
                 client_name,
@@ -34,11 +34,7 @@ module.exports = {
             data.shift
         ]
 
-        db.query(query, values, function(err, results){
-            if(err) throw `Database Error! ${err}`
-
-            callback(results.rows[0])
-        })
+        return db.query(query, values)
     },
     find(id, callback){
         db.query (`

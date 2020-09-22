@@ -45,8 +45,8 @@ module.exports = {
             }
         }
         
-        Employees.create(req.body, function(employees){
-            return res.redirect(`employees/${req.body.id}`)
+        Employees.create(req.body, function(employee){
+            return res.redirect(`employees/${employee.id}`)
 
         })
 

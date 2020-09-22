@@ -1,5 +1,7 @@
 const { date, formatPrice } = require('../../lib/utils')
 const Events = require('../models/Events')
+const Events_Employees = require('../models/Events_Employees')
+const Events_Equipments = require('../models/Events_Equipment')
 
 module.exports ={
     index(req, res){
@@ -53,7 +55,7 @@ module.exports ={
         })
     },
 
-    post(req, res) {
+    async post(req, res) {
 
         const keys = Object.keys(req.body)
 
@@ -62,9 +64,25 @@ module.exports ={
                 return res.send('Por Favor, preencha todos os campos!')
             }
         }
-        Events.create(req.body, function(events){
-            return res.redirect(`events/${req.body.id}`)
-        })
+
+        let results = await Events.create(req.body)
+        const EventId = results.rows[0].id
+
+        const test = {
+            ...req.body,
+            events_id: EventId
+        }
+
+        const filesPromise = req.body.map(events_employees => Events_Employees.create({
+            ...events_employees,
+            events_id: EventId
+        }))
+
+
+        await Promise.all(filesPromise)
+
+        
+        return res.redirect(`events/${EventId}`)
     },
 
     edit(req, res) {

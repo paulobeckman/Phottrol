@@ -38,9 +38,13 @@ module.exports = {
     },
     find(id, callback){
         db.query (`
-            SELECT * 
-            FROM events 
-            WHERE events.id = $1`,[id], function(err, results){
+        SELECT events.*, employees.name AS employee_name, equipment.name AS equipment_name
+        FROM events 
+            LEFT JOIN events_employees ON (events.id = events_employees.events_id)
+            LEFT JOIN employees ON (employees.id = events_employees.employees_id)
+            LEFT JOIN events_equipment ON (events.id = events_equipment.events_id)
+            LEFT JOIN equipment ON (equipment.id = events_equipment.equipment_id)
+        WHERE events.id = $1`,[id], function(err, results){
                 if(err) throw `Database Error! ${err}`
             
                 callback(results.rows[0])

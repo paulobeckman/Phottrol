@@ -1,6 +1,7 @@
 const { date, formatPrice } = require('../../lib/utils')
 const Events = require('../models/Events')
 const Events_Employees = require('../models/Events_Employees')
+const Events_Equipment = require('../models/Events_Equipment')
 const Events_Equipments = require('../models/Events_Equipment')
 
 module.exports ={
@@ -50,7 +51,7 @@ module.exports ={
             event.date_event = date(event.date_event).format
             event.cost = formatPrice(event.cost)
 
-
+            console.log(event)
             return res.render("events/show", {event})
         })
     },
@@ -68,18 +69,13 @@ module.exports ={
         let results = await Events.create(req.body)
         const EventId = results.rows[0].id
 
-        const test = {
+        const event = {
             ...req.body,
             events_id: EventId
         }
 
-        const filesPromise = req.body.map(events_employees => Events_Employees.create({
-            ...events_employees,
-            events_id: EventId
-        }))
-
-
-        await Promise.all(filesPromise)
+        await Events_Employees.create(event)
+        await Events_Equipment.create(event)
 
         
         return res.redirect(`events/${EventId}`)

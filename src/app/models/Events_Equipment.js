@@ -7,7 +7,6 @@ module.exports = {
                 events_id,
                 equipment_id
             ) VALUES ($1, $2)
-            RETURNING id
         `
 
         const values = [

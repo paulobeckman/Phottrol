@@ -51,7 +51,6 @@ module.exports ={
             event.date_event = date(event.date_event).format
             event.cost = formatPrice(event.cost)
 
-            console.log(event)
             return res.render("events/show", {event})
         })
     },
@@ -74,8 +73,8 @@ module.exports ={
             events_id: EventId
         }
 
-        await Events_Employees.create(event)
-        await Events_Equipment.create(event)
+        Events_Employees.create(event)
+        Events_Equipment.create(event)
 
         
         return res.redirect(`events/${EventId}`)

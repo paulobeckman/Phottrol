@@ -398,7 +398,6 @@ tr td a {
     border-radius: 15px;
 
     text-align: center;
-
 }
 
 .cardShow  div + div {
@@ -406,11 +405,28 @@ tr td a {
 }
 
 .item div:last-child,
-.moreInformations{
+.moreInformations {
     color: var(--color-text-primary);
     font-weight: bold;
     font-size: 22px;
     margin-left: 0;
+}
+
+.item.shift {
+    margin-bottom: 50px;
+}
+
+.item button.add-employees,
+.item .add-equipment {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    float: left;
+    margin-top: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 14px;
+    margin: 10px 0;
 }
 
 .item .innerSquare {

@@ -88,19 +88,24 @@
 
 <h3> Escalados para o evento</h3>
 
-<div class="item">
+<div id="employees_create" class="item  shift">
+
     <div>Funcionários Escalados</div>
     <div>
         <select name="employees_id">
             {% for employee in employeeOptions %}
-                <option value="{{employee.id}}"
-                        {% if events.employees_id == employee.id %} selected {% endif %}
-                >
-                    {{employee.name}}
-                </option>
+                <div class="employee">
+                    <option value="{{employee.id}}"
+                            {% if events.employees_id == employee.id %} selected {% endif %}
+                    >
+                        {{employee.name}}
+                    </option>
+                </div>
             {% endfor %}
         </select>
     </div>
+    
+    <button type="button" class="add-employees">+ Mais Funcionários</button>
 </div>
 
 <div class="item">
@@ -116,6 +121,8 @@
             {%endfor%}
         </select>
     </div>
+
+    <button type="button" class="add-equipment">+ Mais Equipamentos</button>
 </div>
 
 <button type="submit">Salvar</button>

@@ -72,3 +72,22 @@ if(pagination) {
     createPagination(pagination)
 }
 
+
+function addEmployees() {
+    const employees = document.querySelector("#employees_create");
+    const fieldContainer = document.querySelectorAll (".employee");
+
+    const newField = fieldContainer[fieldContainer.length -1].cloneNode(true);
+
+    // Não adiciona um novo input se o último tem um valor vazio
+    if (newField.children[0].value == "") return false;
+
+    // Deixa o valor do input vazio
+    newField.children[0].value = "";
+    employees.appendChild(newField);
+}
+
+document
+    .querySelector(".add-employees")
+    .addEventListener("click", addEmployees)
+

@@ -91,3 +91,18 @@ document
     .querySelector(".add-employees")
     .addEventListener("click", addEmployees)
 
+function addEquipments(){
+    const equipments = document.querySelector("#equipments_create")
+    const fieldContainer = document.querySelectorAll(".equipment")
+
+    const newField = fieldContainer[fieldContainer.length -1].cloneNode(true);
+
+    if (newField.children[0].value == "") return false;
+
+    newField.children[0].values = "";
+    equipments.appendChild(newField);
+}
+
+document
+    .querySelector(".add-equipment")
+    .addEventListener("click", addEquipments)

@@ -38,12 +38,11 @@ module.exports = {
     },
     find(id, callback){
         db.query (`
-        SELECT events.*, employees.name AS employee_name, equipment.name AS equipment_name
+        SELECT events.*, employees.name AS employee_name, equipments.name AS equipment_name
         FROM events 
-            LEFT JOIN events_employees ON (events.id = events_employees.events_id)
-            LEFT JOIN employees ON (employees.id = events_employees.employees_id)
-            LEFT JOIN events_equipment ON (events.id = events_equipment.events_id)
-            LEFT JOIN equipment ON (equipment.id = events_equipment.equipment_id)
+            LEFT JOIN events_employees_equipments ON (events.id = events_employees_equipments.event_id)
+            LEFT JOIN employees ON (employees.id = events_employees_equipments.employee_id)
+            LEFT JOIN equipments ON (equipments.id = events_employees_equipments.equipment_id)
         WHERE events.id = $1`,[id], function(err, results){
                 if(err) throw `Database Error! ${err}`
             
@@ -111,8 +110,8 @@ module.exports = {
             callback(results.rows)
         })
     },
-    equipmentSelectOptions(callback){
-        db.query('SELECT name, id FROM equipment', function(err, results) {
+    equipmentsSelectOptions(callback){
+        db.query('SELECT name, id FROM equipments', function(err, results) {
             if(err) throw `Database Error! ${err}`
 
             callback(results.rows)

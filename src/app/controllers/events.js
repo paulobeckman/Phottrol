@@ -1,8 +1,6 @@
 const { date, formatPrice } = require('../../lib/utils')
 const Events = require('../models/Events')
-const Events_Employees = require('../models/Events_Employees')
-const Events_Equipment = require('../models/Events_Equipment')
-const Events_Equipments = require('../models/Events_Equipment')
+const Events_Employees_Equipments = require('../models/Events_Employees_Equipments')
 
 module.exports ={
     index(req, res){
@@ -37,7 +35,7 @@ module.exports ={
 
     create(req, res){
         Events.employeesSelectOptions(function(employeeOptions) {
-            Events.equipmentSelectOptions(function(equipmentOptions){
+            Events.equipmentsSelectOptions(function(equipmentOptions){
                 return res.render("events/create", {employeeOptions, equipmentOptions})
 
             })
@@ -73,8 +71,7 @@ module.exports ={
             events_id: EventId
         }
 
-        Events_Employees.create(event)
-        Events_Equipment.create(event)
+        Events_Employees_Equipments.create(event)
 
         
         return res.redirect(`events/${EventId}`)

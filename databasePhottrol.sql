@@ -16,7 +16,7 @@ CREATE TABLE "employees" (
   "salary" text
 );
 
-CREATE TABLE "equipment" (
+CREATE TABLE "equipments" (
   "id" SERIAL PRIMARY KEY,
   "type" text,
   "name" text,
@@ -26,20 +26,15 @@ CREATE TABLE "equipment" (
   "replacement_date" timestamp
 );
 
-CREATE TABLE "events_employees" (
-  "events_id" int,
-  "employees_id" int
-);
-
-CREATE TABLE "events_equipment" (
-  "events_id" int,
+CREATE TABLE "events_employees_equipments" (
+  "id" SERIAL PRIMARY KEY,
+  "event_id" int,
+  "employee_id" int,
   "equipment_id" int
 );
 
-ALTER TABLE "events_employees" ADD FOREIGN KEY ("events_id") REFERENCES "events" ("id");
+ALTER TABLE "events_employees_equipments" ADD FOREIGN KEY ("event_id") REFERENCES "events" ("id");
 
-ALTER TABLE "events_employees" ADD FOREIGN KEY ("employees_id") REFERENCES "employees" ("id");
+ALTER TABLE "events_employees_equipments" ADD FOREIGN KEY ("employee_id") REFERENCES "employees" ("id");
 
-ALTER TABLE "events_equipment" ADD FOREIGN KEY ("events_id") REFERENCES "events" ("id");
-
-ALTER TABLE "events_equipment" ADD FOREIGN KEY ("equipment_id") REFERENCES "equipment" ("id");
+ALTER TABLE "events_employees_equipments" ADD FOREIGN KEY ("equipment_id") REFERENCES "equipments" ("id");

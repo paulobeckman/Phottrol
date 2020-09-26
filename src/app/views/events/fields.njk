@@ -15,7 +15,7 @@
         <input 
             type="text"
             name="address"
-            value=" {{ event.address }}"
+            value="{{ event.address }}"
         >
     </div>
 </div>
@@ -88,30 +88,26 @@
 
 <h3> Escalados para o evento</h3>
 
-<div id="employees_create" class="item  shift">
-
+<div id="employees_create" class="item">
     <div>Funcionários Escalados</div>
-    <div>
-        <select name="employees_id">
+    <div class="employee">
+        <select name="employees_id" class="espaceBottomShift">
             {% for employee in employeeOptions %}
-                <div class="employee">
                     <option value="{{employee.id}}"
                             {% if events.employees_id == employee.id %} selected {% endif %}
                     >
                         {{employee.name}}
                     </option>
-                </div>
             {% endfor %}
         </select>
     </div>
-    
-    <button type="button" class="add-employees">+ Mais Funcionários</button>
 </div>
+<button type="button" class="add-employees">+ Mais Funcionários</button>
 
-<div class="item">
+<div id="equipments_create"class="item espaceTopShift">
     <div>Equipamentos Escalados</div>
-    <div>
-        <select name="equipment_id">
+    <div class="equipment">
+        <select name="equipment_id" class="espaceBottomShift">
             {%for equipment in equipmentOptions%}
                 <option value="{{equipment.id}}"
                     {% if events.equipment_id == equipment.id %} selected {% endif %}}
@@ -121,9 +117,8 @@
             {%endfor%}
         </select>
     </div>
-
-    <button type="button" class="add-equipment">+ Mais Equipamentos</button>
 </div>
+<button type="button" class="add-equipment">+ Mais Equipamentos</button>
 
 <button type="submit">Salvar</button>
 

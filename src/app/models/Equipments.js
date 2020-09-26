@@ -3,7 +3,7 @@ const db = require("../../config/db")
 module.exports = {
     create(data, callback){
         const query = `
-            INSERT INTO equipment (
+            INSERT INTO equipments (
                 type,
                 name,
                 cost,
@@ -34,7 +34,7 @@ module.exports = {
     find(id, callback){
         db.query(`
             SELECT *
-            FROM equipment
+            FROM equipments
             WHERE id = $1`, [id], function(err, results){
                 if(err) throw `Database Error! ${err}`
 
@@ -47,23 +47,23 @@ module.exports = {
         let query = "",
             filterQuery = "",
             totalQuery = `( 
-                SELECT count(*) FROM equipment
+                SELECT count(*) FROM equipments
             ) AS total`
         if (filter){
             filterQuery = `${query}
-                WHERE equipment.type ILIKE '%${filter}%'
-                OR equipment.name ILIKE '%${filter}%'
+                WHERE equipments.type ILIKE '%${filter}%'
+                OR equipments.name ILIKE '%${filter}%'
             `
 
             totalQuery = `(
-                SELECT count(*) FROM equipment
+                SELECT count(*) FROM equipments
                 ${filterQuery}
             ) AS total`
         }
 
         query = `
-            SELECT equipment.*, ${totalQuery}
-            FROM equipment
+            SELECT equipments.*, ${totalQuery}
+            FROM equipments
             ${filterQuery}
             LIMIT $1 OFFSET $2
         `
@@ -76,7 +76,7 @@ module.exports = {
     },
     update(data, callback){
         const query = `
-            UPDATE equipment SET
+            UPDATE equipments SET
                 type = ($1),
                 name = ($2),
                 cost = ($3),
@@ -108,7 +108,7 @@ module.exports = {
     delete(id, callback){
         db.query(`
             DELETE
-            FROM equipment
+            FROM equipments
             WHERE id = $1`, [id], function(err, results){
                 if(err) throw `Database Error! ${err}`
 

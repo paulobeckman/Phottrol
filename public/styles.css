@@ -412,12 +412,16 @@ tr td a {
     margin-left: 0;
 }
 
-.item.shift {
-    margin-bottom: 50px;
+.item.espaceTopShift {
+    margin-top: 50px
 }
 
-.item button.add-employees,
-.item .add-equipment {
+.item .espaceBottomShift{
+    margin-bottom: 12px;
+}
+
+button.add-employees,
+button.add-equipment {
     background: none;
     padding: 0;
     border-radius: 0;
@@ -426,7 +430,7 @@ tr td a {
     color: var(--color-primary);
     font-weight: bold;
     font-size: 14px;
-    margin: 10px 0;
+    margin: 0;
 }
 
 .item .innerSquare {

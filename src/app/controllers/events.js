@@ -1,13 +1,14 @@
 const { date, formatPrice } = require('../../lib/utils')
 const Events = require('../models/Events')
-const Events_Employees_Equipments = require('../models/Events_Employees_Equipments')
+const Events_Employees = require('../models/Events_Employees')
+const Events_Equipments = require('../models/Events_Equipments')
 
 module.exports ={
     index(req, res){
         let {filter, page, limit} = req.query
 
         page = page || 1
-        limit = limit || 2
+        limit = limit || 5
         let offset = limit * (page - 1)
 
         const params = {
@@ -42,15 +43,24 @@ module.exports ={
         })
     },
 
-    show(req, res){
-        Events.find(req.params.id, function(event){
-            if(!event) return res.send("Evento não foi encontrado")
-            
-            event.date_event = date(event.date_event).format
-            event.cost = formatPrice(event.cost)
+    async show(req, res){
 
-            return res.render("events/show", {event})
-        })
+        let results = await Events.find(req.params.id)
+        const event = results.rows[0]
+
+        if(!event) return res.send("Evento não foi encontrado")
+        
+        event.date_event = date(event.date_event).format
+        event.cost = formatPrice(event.cost)
+
+        results = await Events_Employees.find(event.id)
+        const employees = results.rows
+
+        results = await Events_Equipments.find(event.id)
+        const equipments = results.rows
+        
+        console.log(equipments)
+        return res.render("events/show", {event, employees, equipments})
     },
 
     async post(req, res) {
@@ -64,15 +74,13 @@ module.exports ={
         }
 
         let results = await Events.create(req.body)
-        const EventId = results.rows[0].id
+        const EventId = results.rows[0].id 
+        
+        const fileEmployee = req.body.employee_id.map(employeeId => Events_Employees.create({employee_id: employeeId, event_id: EventId}))
+        Promise.all(fileEmployee)
 
-        const event = {
-            ...req.body,
-            events_id: EventId
-        }
-
-        Events_Employees_Equipments.create(event)
-
+        const fileEquipment = req.body.equipment_id.map(equipmentId => Events_Equipments.create({equipment_id: equipmentId, event_id: EventId}))
+        Promise.all(fileEquipment)
         
         return res.redirect(`events/${EventId}`)
     },

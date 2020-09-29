@@ -26,15 +26,22 @@ CREATE TABLE "equipments" (
   "replacement_date" timestamp
 );
 
-CREATE TABLE "events_employees_equipments" (
+CREATE TABLE "events_employees" (
   "id" SERIAL PRIMARY KEY,
   "event_id" int,
-  "employee_id" int,
+  "employee_id" int
+);
+
+CREATE TABLE "events_equipments" (
+  "id" SERIAL PRIMARY KEY,
+  "event_id" int,
   "equipment_id" int
 );
 
-ALTER TABLE "events_employees_equipments" ADD FOREIGN KEY ("event_id") REFERENCES "events" ("id");
+ALTER TABLE "events_employees" ADD FOREIGN KEY ("event_id") REFERENCES "events" ("id");
 
-ALTER TABLE "events_employees_equipments" ADD FOREIGN KEY ("employee_id") REFERENCES "employees" ("id");
+ALTER TABLE "events_employees" ADD FOREIGN KEY ("employee_id") REFERENCES "employees" ("id");
 
-ALTER TABLE "events_employees_equipments" ADD FOREIGN KEY ("equipment_id") REFERENCES "equipments" ("id");
+ALTER TABLE "events_equipments" ADD FOREIGN KEY ("event_id") REFERENCES "events" ("id");
+
+ALTER TABLE "events_equipments" ADD FOREIGN KEY ("equipment_id") REFERENCES "equipments" ("id");

@@ -58,7 +58,9 @@
             <div class="item">
                 <div class="innerSquare">
                     <ul>
-                        <li>{{event.employee_name}}</li>
+                        {%for employee in employees%}
+                            <li><a href="/employees/{{employee.employee_id}}">{{employee.employee_name}}</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <div>Funcionários</div>
@@ -67,7 +69,9 @@
             <div class="item">
                 <div class="innerSquare">
                     <ul>
-                        <li>{{event.equipment_name}}</li>
+                        {% for equipment in equipments%}
+                            <li><a href="/equipments/{{equipment.equipment_id}}">{{equipment.equipment_name}}</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <div>Equipamentos</div>

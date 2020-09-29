@@ -6,7 +6,7 @@ module.exports ={
         let { filter, page, limit} = req.query
 
         page = page || 1
-        limit = limit || 2
+        limit = limit || 3
         let offset = limit * (page - 1)
 
         const params = {
@@ -46,8 +46,8 @@ module.exports ={
         Equipments.create(req.body, function(equipment){
             return res.redirect(`equipments/${equipment.id}`)
 
-        })
-    },
+        }) 
+    }, 
     show(req, res){
         Equipments.find(req.params.id, function(equipment){
             if(!equipment) return res.send("Equipamento não foi encontrado")

@@ -54,6 +54,19 @@ select {
     max-width: 240px;
     border-radius: 30px;
     background: var(--color-primary);
+
+    animation: left 500ms ease-in-out;
+}
+
+@keyframes left{
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to{
+        opacity: 1;
+        
+    }
 }
 
 .leftBar nav {
@@ -132,6 +145,18 @@ nav ul li:last-child a {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    animation: top 500ms ease-in-out;
+}
+
+@keyframes top{
+    from{
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to{
+        opacity: 1;
+    }
 }
 
 .topCenterBar .textTopCenterBar{
@@ -300,7 +325,20 @@ tr td a {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 30px;
+
+    animation: right 300ms ease-in-out;
 }
+
+@keyframes right{
+    from{
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to{
+        opacity: 1;
+    }
+}
+
 
 .cardCreate .avatar {
     border-bottom-left-radius: 30px;
@@ -373,15 +411,27 @@ tr td a {
 
     border-radius: 30px;
     margin-top: 34px;
+
+    animation: bottom 500ms ease-in-out; 
+}
+
+@keyframes bottom{
+    from{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to{
+        opacity: 1;
+    }
 }
 
 .cardShow .titleCenterInformation h1{
-    font-weight: normal;
+    font-weight: bold;
     font-size: 25px;
     color: var(--color-text-primary);
     
     padding-left: 6px;
-    border-left: solid 6px var(--color-primary)
+    padding-top: 20px;
 }
 
 .cardShow .rowPrimary, 
@@ -410,7 +460,7 @@ tr td a {
     font-weight: bold;
     font-size: 22px;
     margin-left: 0;
-}
+} 
 
 .item.espaceTopShift {
     margin-top: 50px
@@ -418,6 +468,14 @@ tr td a {
 
 .item .espaceBottomShift{
     margin-bottom: 12px;
+}
+
+.item ul li:first-child{
+    margin-bottom: 20px;
+}
+
+.item ul li{
+    text-decoration: underline;
 }
 
 button.add-employees,
@@ -472,6 +530,8 @@ button.add-equipment {
 .table-container {
     display: grid;
     grid-template-columns: 64px 1fr 16px/ 1fr;
+
+    animation: bottom 500ms ease-in-out; /*@keyframs bottom linha 405*/ 
 }
 
 .table-container .pagination {

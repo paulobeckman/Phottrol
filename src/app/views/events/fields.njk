@@ -91,10 +91,10 @@
 <div id="employees_create" class="item">
     <div>Funcionários Escalados</div>
     <div class="employee">
-        <select name="employees_id" class="espaceBottomShift">
+        <select name="employee_id" class="espaceBottomShift">
             {% for employee in employeeOptions %}
                     <option value="{{employee.id}}"
-                            {% if events.employees_id == employee.id %} selected {% endif %}
+                            {% if events.employee_id == employee.id %} selected {% endif %}
                     >
                         {{employee.name}}
                     </option>

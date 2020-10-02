@@ -60,7 +60,6 @@ module.exports ={
         results = await Events_Equipments.find(event.id)
         const equipments = results.rows
         
-        console.log(equipments)
         return res.render("events/show", {event, employees, equipments})
     },
 
@@ -77,12 +76,26 @@ module.exports ={
         let results = await Events.create(req.body)
         const EventId = results.rows[0].id 
         
-        const fileEmployee = req.body.employee_id.map(employeeId => Events_Employees.create({employee_id: employeeId, event_id: EventId}))
-        Promise.all(fileEmployee)
+        if (req.body.employee_id.length > 1){
+            const fileEmployee = req.body.employee_id.map(employeeId => Events_Employees.create({employee_id: employeeId, event_id: EventId}))
+            Promise.all(fileEmployee)
 
-        const fileEquipment = req.body.equipment_id.map(equipmentId => Events_Equipments.create({equipment_id: equipmentId, event_id: EventId}))
-        Promise.all(fileEquipment)
-        
+        } else {
+            const employee_Id = req.body.employee_id
+            Events_Employees.create({employee_id: employee_Id, event_id: EventId})
+
+        }
+
+        if (req.body.equipment_id.length > 1){
+            const fileEquipment = req.body.equipment_id.map(equipmentId => Events_Equipments.create({equipment_id: equipmentId, event_id: EventId}))
+            Promise.all(fileEquipment)
+
+        } else {
+            const equipment_Id = req.body.equipment_id
+            Events_Equipments.create({equipment_id: equipment_Id, event_id: EventId})
+
+        }
+                
         return res.redirect(`events/${EventId}`)
     },
 
@@ -112,7 +125,7 @@ module.exports ={
         return res.render("events/edit", {event, employees, equipments, Eventsemployees, Eventsequipments})
     },
 
-    put(req, res){
+    async put(req, res){
         const keys = Object.keys(req.body)
 
         for(key of keys) {
@@ -121,9 +134,29 @@ module.exports ={
             }
         }
 
-        Events.update(req.body, function(){
-            return res.redirect(`events/${req.body.id}`)
-        })
+        if (req.body.employee_id.length > 1){
+            const fileEmployee = req.body.employee_id.map(employeeId => Events_Employees.update({employee_id: employeeId}))
+            Promise.all(fileEmployee)
+
+        } else {
+            const employee_Id = req.body.employee_id
+            Events_Employees.update({employee_id: employee_Id})
+
+        }
+
+        if (req.body.equipment_id.length > 1){
+            const fileEquipment = req.body.equipment_id.map(equipmentId => Events_Equipments.update({equipment_id: equipmentId}))
+            Promise.all(fileEquipment)
+
+        } else {
+            const equipment_Id = req.body.equipment_id
+            Events_Equipments.update({equipment_id: equipment_Id})
+
+        }
+
+        await Events.update(req.body)
+
+        return res.redirect(`events/${req.body.id}`)
     },
 
     delete(req, res) {

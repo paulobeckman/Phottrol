@@ -91,15 +91,17 @@
 <div id="employees_create" class="item">
     <div>Funcionários Escalados</div>
         <div class="employee">
-            <select name="employee_id" class="espaceBottomShift">
-                {% for employee in employees%}
-                        <option value="{{employee.id}}"
-                                {% if events.employee_id == employee.id %} selected {% endif %}
-                        >
-                            {{employee.name}}
-                        </option>
-                {% endfor %}
-            </select>
+        {% for Eventemployee in Eventsemployees%}
+                <select name="employee_id" class="espaceBottomShift">
+                    {% for employee in employees%}
+                            <option value="{{employee.id}}"
+                                    {% if Eventemployee.employee_id == employee.id %} selected {% endif %}
+                            >
+                                {{employee.name}}
+                            </option>
+                    {% endfor %}
+                </select>
+            {% endfor %}
         </div>
 </div>
 <button type="button" class="add-employees">+ Mais Funcionários</button>
@@ -107,15 +109,17 @@
 <div id="equipments_create"class="item espaceTopShift">
     <div>Equipamentos Escalados</div>
     <div class="equipment">
-        <select name="equipment_id" class="espaceBottomShift">
-            {%for equipment in equipments%}
-                <option value="{{equipment.id}}"
-                    {% if events.equipment_id == equipment.id %} selected {% endif %}}
-                >
-                {{equipment.name}} 
-                </option>
-            {%endfor%}
-        </select>
+        {% for Eventequipment in Eventsequipments%}
+            <select name="equipment_id" class="espaceBottomShift">
+                {%for equipment in equipments%}
+                    <option value="{{equipment.id}}"
+                        {% if Eventequipment.equipment_id == equipment.id %} selected {% endif %}}
+                    >
+                    {{equipment.name}} 
+                    </option>
+                {%endfor%}
+            </select>
+        {% endfor %}
     </div>
 </div>
 <button type="button" class="add-equipment">+ Mais Equipamentos</button>

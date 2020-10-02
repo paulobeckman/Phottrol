@@ -22,5 +22,21 @@ module.exports = {
             FROM events_equipments 
             LEFT JOIN equipments ON (equipments.id = events_equipments.equipment_id)
             WHERE event_id = $1`, [id])
+    },
+    update(data){
+        const query = `
+            UPDATE events_equipments SET 
+                event_id = ($1),
+                equipment_id = ($2)
+            WHERE id = $3
+        `
+
+        const values = [
+            data.event_id,
+            data.equipment_id,
+            data.id
+        ]
+
+        db.query(query, values)
     }
 }

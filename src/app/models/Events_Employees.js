@@ -22,5 +22,21 @@ module.exports = {
                 FROM events_employees 
                 LEFT JOIN employees ON (employees.id = events_employees.employee_id)
                 WHERE event_id = $1`, [id])
+    },
+    update(data){
+        const query = `
+            UPDATE events_employees SET 
+                event_id = ($1),
+                employee_id = ($2)
+            WHERE id = $3
+        `
+
+        const values = [
+            data.event_id,
+            data.employee_id,
+            data.id
+        ]
+
+        db.query(query, values)
     }
 }

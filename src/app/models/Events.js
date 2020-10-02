@@ -55,7 +55,7 @@ module.exports = {
             callback(results.rows)
         })
     },
-    update(data, callback){
+    update(data){
         const query = `
             UPDATE events SET 
                 client_name = ($1),
@@ -80,11 +80,7 @@ module.exports = {
             data.id
         ]
 
-        db.query(query, values, function(err, results){
-            if(err) throw `Database Error! ${err}`
-
-            callback()
-        })
+        return db.query(query, values)
     },
     delete(id, callback){
        db.query(`

@@ -34,13 +34,14 @@ module.exports ={
         Events.paginate(params)
     },
 
-    create(req, res){
-        Events.employeesSelectOptions(function(employeeOptions) {
-            Events.equipmentsSelectOptions(function(equipmentOptions){
-                return res.render("events/create", {employeeOptions, equipmentOptions})
+    async create(req, res){
+        results = await Events.employeesSelectOptions()
+        const employees = results.rows
 
-            })
-        })
+        results = await Events.equipmentsSelectOptions()
+        const equipments = results.rows
+
+        return res.render("events/create", {employees, equipments})
     },
 
     async show(req, res){
@@ -85,14 +86,30 @@ module.exports ={
         return res.redirect(`events/${EventId}`)
     },
 
-    edit(req, res) {
-        Events.find(req.params.id, function(event) {
-            if(!event) return res.send("Evento não foi encontrado")
-            
-            event.date_event = date(event.date_event).iso
+    async edit(req, res) {
 
-            return res.render("events/edit", {event})
-        })
+        let =results = await Events.find(req.params.id)
+        const event = results.rows[0]
+
+        if(!event) return res.send("Evento não foi encontrado")
+        
+        event.date_event = date(event.date_event).iso
+
+        results = await Events.employeesSelectOptions()
+        const employees = results.rows
+
+        results = await Events.equipmentsSelectOptions()
+        const equipments = results.rows
+
+        results = await Events_Employees.find(event.id)
+        const Eventsemployees = results.rows
+
+        console.log(Eventsemployees)
+
+        results = await Events_Equipments.find(event.id)
+        const Eventsequipments = results.rows
+
+        return res.render("events/edit", {event, employees, equipments, Eventsemployees, Eventsequipments})
     },
 
     put(req, res){

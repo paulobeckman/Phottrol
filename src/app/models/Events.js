@@ -96,19 +96,11 @@ module.exports = {
            return callback()
        }) 
     },
-    employeesSelectOptions(callback){
-        db.query(`SELECT name, id FROM employees`, function(err, results) {
-            if(err) throw `Database Error! ${err}`
-
-            callback(results.rows)
-        })
+    employeesSelectOptions(){
+       return db.query(`SELECT name, id FROM employees`)
     },
-    equipmentsSelectOptions(callback){
-        db.query('SELECT name, id FROM equipments', function(err, results) {
-            if(err) throw `Database Error! ${err}`
-
-            callback(results.rows)
-        })
+    equipmentsSelectOptions(){
+       return db.query('SELECT name, id FROM equipments')
     },
     paginate(params) {
         const { filter, limit, offset, callback} = params

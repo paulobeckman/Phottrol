@@ -82,15 +82,11 @@ module.exports = {
 
         return db.query(query, values)
     },
-    delete(id, callback){
-       db.query(`
-        DELETE
-        FROM events
-        WHERE id = $1`, [id], function(err, results) {
-           if(err) throw `DATABASE ERROR ${err}`
-
-           return callback()
-       }) 
+    delete(id){
+        return db.query(`
+                DELETE
+                FROM events
+                WHERE id = $1`, [id]) 
     },
     employeesSelectOptions(){
        return db.query(`SELECT name, id FROM employees`)

@@ -252,7 +252,6 @@ nav ul li:last-child a {
 
 .filter input{
     border: 1px solid var(--color-primary);
-    width:600px; 
     height: 58px;
     border-radius: 50px;
 
@@ -516,7 +515,9 @@ button.add-equipment {
 
 .details.formDelete button {
     background: gray;
-    float: left
+    float: left;
+    position: absolute;
+    display: flex
 }
 
 .details.formDelete button:hover {

@@ -91,17 +91,29 @@
 <div id="employees_create" class="item">
     <div>Funcionários Escalados</div>
         <div class="employee">
-        {% for Eventemployee in Eventsemployees%}
-                <select name="employee_id" class="espaceBottomShift">
-                    {% for employee in employees%}
-                            <option value="{{employee.id}}"
-                                    {% if Eventemployee.employee_id == employee.id %} selected {% endif %}
-                            >
-                                {{employee.name}}
-                            </option>
-                    {% endfor %}
-                </select>
+        {% if Eventsemployees%}
+            {% for Eventemployee in Eventsemployees%}
+                    <select name="employee_id" class="espaceBottomShift">
+                        {% for employee in employees%}
+                                <option value="{{employee.id}}"
+                                        {% if Eventemployee.employee_id == employee.id %} selected {% endif %}
+                                >
+                                    {{employee.name}}
+                                </option>
+                        {% endfor %}
+                    </select>
             {% endfor %}
+        {% else %}
+            <select name="employee_id" class="espaceBottomShift">
+                {% for employee in employees%}
+                        <option value="{{employee.id}}"
+                                {% if Eventemployee.employee_id == employee.id %} selected {% endif %}
+                        >
+                            {{employee.name}}
+                        </option>
+                {% endfor %}
+            </select>
+        {%endif%}
         </div>
 </div>
 <button type="button" class="add-employees">+ Mais Funcionários</button>
@@ -109,7 +121,19 @@
 <div id="equipments_create"class="item espaceTopShift">
     <div>Equipamentos Escalados</div>
     <div class="equipment">
-        {% for Eventequipment in Eventsequipments%}
+        {% if Eventsequipments %}
+            {% for Eventequipment in Eventsequipments%}
+                <select name="equipment_id" class="espaceBottomShift">
+                    {%for equipment in equipments%}
+                        <option value="{{equipment.id}}"
+                            {% if Eventequipment.equipment_id == equipment.id %} selected {% endif %}}
+                        >
+                        {{equipment.name}} 
+                        </option>
+                    {%endfor%}
+                </select>
+            {% endfor %}
+        {% else %}
             <select name="equipment_id" class="espaceBottomShift">
                 {%for equipment in equipments%}
                     <option value="{{equipment.id}}"
@@ -119,7 +143,7 @@
                     </option>
                 {%endfor%}
             </select>
-        {% endfor %}
+        {% endif %}
     </div>
 </div>
 <button type="button" class="add-equipment">+ Mais Equipamentos</button>

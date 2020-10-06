@@ -126,6 +126,15 @@ module.exports = {
 
             callback(results.rows)
         })
-    }
+    },
+    nextEvent(){
+        return db.query(`
+            SELECT events.*
+            FROM events
+            WHERE date(date_event) = (SELECT min(date(date_event))
+            FROM events
+            WHERE date(date_event) > date(now()))
+        `)
+    },
     
 }

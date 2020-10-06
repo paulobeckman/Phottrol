@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Phottrol" title="#Phottrol" src="./github-assets/banner.png" />
+    <img alt="Phottrol" title="#Phottrol" src="./github-assets/pagina1.png" width="600px">
 </h1>
 
 <h4 align="center"> 

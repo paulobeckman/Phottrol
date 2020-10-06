@@ -29,7 +29,7 @@
 
 ## 💻 Sobre o projeto
 
-🙍‍♂️📸Phottrol - é uma forma de ter o controle de todos os eventos que vão ser realizados, além dos funcionarios e equipamentos que fazem da empresa de fotografia. Além disso, podem ser escalados equipamentos que vão ser utilizados e funcionários que vão trabalhar no dia do evento.
+🙍‍♂️📸Phottrol - é uma forma de ter o controle de todos os eventos que vão ser realizados, também de dos funcionarios e equipamentos que fazem parte da empresa de fotografia. Além disso, podem ser escalados equipamentos que vão ser utilizados e funcionários que vão trabalhar no dia do evento.
 
 A empresa ou fotógrafo podem cadastrar as seguintes informações:
 - Eventos: 
@@ -105,7 +105,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ## 🚀 Como rodar este projeto
 
-Esse projeto tem uma parte estão juntos o front-end e o back-end:
+Esse projeto tem uma parte e estão juntos o front-end e o back-end:
 1. Back-end (arquivos server.js, routes.js, pasta confi, controllers, models) 
 2. Front-end (pasta views, public e lib)
 

@@ -48,7 +48,7 @@ A empresa ou fotógrafo podem cadastrar as seguintes informações:
     - Data de aniversário;
     - Salário;
 
--Equipamentos:
+- Equipamentos:
     - Tipo;
     - Nome;
     - Custo do equipamento;
